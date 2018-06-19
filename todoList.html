@@ -3,12 +3,14 @@
 <head>
 	<title>Todo List</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/todoListLight.css" disabled>
+	<link rel="stylesheet" type="text/css" href="assets/css/todoListGray.css" disabled>
+	<link rel="stylesheet" type="text/css" href="assets/css/todoListChromatic.css" disabled>
 	<link rel="stylesheet" type="text/css" href="assets/css/todoList.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body>
-
 	<div id="container">
 		<h1>To-do List <i class="fa fa-plus"></i><i class="fa fa-check-square"></i></h1>
 		<input type="text" name="" placeholder="Add New Item">
@@ -22,6 +24,15 @@
 		</ul>
 		<ul id="closedItems">
 		</ul>
+
+		<form id="themePicker">
+			<select>
+				<option>Default</option>
+				<option>Light</option>
+				<option>Greyscale</option>
+				<option>Chromatic</option>
+			</select>
+		</form>
 	</div>
 
 

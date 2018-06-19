@@ -1,6 +1,6 @@
 body{
 	font-family: roboto;
-	background: black;
+	background: rgb(0, 11, 33);
 }
 
 #themePicker{
@@ -17,8 +17,8 @@ select{
 #container{
 	width: 500px;
 	margin: 100px auto;
-	background: #000;
-	box-shadow: 0 0 5px rgba(66, 244, 185, 0.5);
+	background: #006891;
+	box-shadow: 0 0 5px rgba(66, 66, 150, 0.8);
 	color: #fff;
 }
 
@@ -40,7 +40,7 @@ select{
 }
 
 h1{
-	background: #42f4b9;
+	background: #02b7ff;
 	margin: 0;
 	padding: 10px 20px;
 	text-transform: uppercase;
@@ -55,18 +55,19 @@ ul{
 }
 
 li{
-	background: #000;
+	background: rgb(0, 26, 44);
 	height: 40px;
 	line-height: 40px;
 }
 
 #openItems li:nth-child(2n){
-	background: #197060;
+	background: #fff;
+	color: black;
 }
 
 input{
 	font-size: 18px;
-	background: #000;
+	background: rgb(0, 30, 60);
 	width: 100%;
 	padding: 13px 13px 13px 20px;
 	color: #fff;
@@ -75,7 +76,7 @@ input{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
-	border: 3px solid rgba(66, 244, 185, 0.5)
+	border: 3px solid rgba(0, 0, 0, 0.5)
 }
 
 input:focus{

@@ -103,3 +103,30 @@ function showOpen(){
 		$("input[type='text']").attr("disabled", false)
 	}
 }
+
+
+
+//Toggle between css stylesheets.
+$("#themePicker").on("change", function(){
+	if($("option")[0].selected == true){
+		$('link[href="assets/css/todoList.css"]').prop('disabled', false);
+		$('link[href="assets/css/todoListGray.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListLight.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListChromatic.css"]').prop('disabled', true);
+	} else if($("option")[1].selected == true){	
+		$('link[href="assets/css/todoList.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListLight.css"]').prop('disabled', false);	
+		$('link[href="assets/css/todoListGray.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListChromatic.css"]').prop('disabled', true);		
+	} else if($("option")[2].selected == true){
+		$('link[href="assets/css/todoList.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListLight.css"]').prop('disabled', true);	
+		$('link[href="assets/css/todoListGray.css"]').prop('disabled', false);
+		$('link[href="assets/css/todoListChromatic.css"]').prop('disabled', true);				
+	} else{
+		$('link[href="assets/css/todoList.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListLight.css"]').prop('disabled', true);	
+		$('link[href="assets/css/todoListGray.css"]').prop('disabled', true);
+		$('link[href="assets/css/todoListChromatic.css"]').prop('disabled', false);			
+	}
+})
