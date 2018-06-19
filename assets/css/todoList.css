@@ -62,6 +62,7 @@ li{
 
 #openItems li:nth-child(2n){
 	background: #197060;
+	color: white;
 }
 
 input{
