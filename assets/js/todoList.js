@@ -1,21 +1,32 @@
-var items = $("ul li")
+var openItems = $("#openItems li");
+var closedItems = document.querySelectorAll("#closedItems li");
+var showActive = true;
+var closedCount = closedItems.length;
+
 
 //Will toggle status of item
-$("ul").on("click", "li", function(){
+$("#openItems").on("click", "li", function(){
 	$(this).toggleClass("done");
 })
 
+
+
 //Removes item when clicked
-$("ul").on("click", "span", function(event){
+$("#openItems").on("click", "span", function(event){
 	$(this).parent().fadeOut(500, function(){
 		$(this).remove()
-		items = $("ul li")
+		$("#closedItems").append($(this))
+		openItems = $("#openItems li")
+		closedItems = document.querySelectorAll("#closedItems li")
+		closedCount = closedItems.length
 		congratulate()
 	})
 	//stops events from outer events from firing
 	event.stopPropagation();
 
 })
+
+
 
 //Adding new items
 $("input[type='text']").keypress(function(event){
@@ -24,27 +35,71 @@ $("input[type='text']").keypress(function(event){
 		//Stores their input
 		var newItem = $(this).val()
 		//Add new item to list
-		$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + newItem + "</li>")
+		$("#openItems").append("<li><span><i class='fa fa-trash'></i></span> " + newItem + "</li>")
 		//Clears input
 		$(this).val("")
-		items = $("ul li")
+		openItems = $("#openItems li")
 		removeCongrats()
 	}
 })
 
 
+//toggles input line
 $(".fa-plus").click(function(){
 	$("input[type='text']").fadeToggle()
 })
 
+
+//toggles between active and closed tasks
+$(".fa-check-square").click(function(){
+	showOpen();
+	showActive = !showActive
+})
+
+
+//Appends a message for the user
 function congratulate(){
-	if(items.length == 0){
-		$("ul").append("<li class='applaud'><span><i class='fa fa-trash'></i></span> " + "You have been really productive!" + "</li>")
+	if(openItems.length == 0){
+		$("#openItems").append("<li class='applaud'>" + "You have been really productive!" + "</li>")
 	}
 }
 
+
+//Removes the congratulatory message for the user
 function removeCongrats(){
-	if(items.length > 1){
+	if(openItems.length > 1){
 		$(".applaud").remove()
+	}
+}
+
+
+//called to show or hide tasks
+function showOpen(){
+	if(showActive == true){
+		//hides all openItems and unhides closedItems
+		for(var i = 0; i < openItems.length; i++){
+			openItems[i].style.display = "none"
+		}
+		for(var i = 0; i < closedItems.length; i++){
+			closedItems[i].style.display = "inherit"
+			closedItems[i].classList.remove("done")
+		}
+		//replace icons and disable input
+		$("#closedItems span i").removeClass("fa-trash");
+		$("#closedItems span i").addClass("fa-arrow-circle-up");
+		$("input[type='text']").val("You have completed " + closedCount + " task(s).")
+		$("input[type='text']").attr("disabled", true);
+
+		//hides all closedItems and unhides openItems
+	} else {
+		for(var i = 0; i < openItems.length; i++){
+			openItems[i].style.display = "inherit"
+		}
+		for(var i = 0; i < closedItems.length; i++){
+			closedItems[i].style.display = "none"
+		}
+		//enable input
+		$("input[type='text']").val("")
+		$("input[type='text']").attr("disabled", false)
 	}
 }
